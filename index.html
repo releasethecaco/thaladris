@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Thaladris — Shards of Jästra</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="title">
+        <h1>Thaladris</h1>
+        <div class="subtitle">Shards of Jästra — <span class="accent">chronomancy idle</span></div>
+      </div>
+      <div class="info">
+        <div class="eternity" id="eternity_display">Eternity: 0</div>
+        <div class="small muted">Prestige: press <kbd>P</kbd> (req: <span id="prestige_req">100,000</span>)</div>
+      </div>
+    </header>
+
+    <main class="main-grid">
+      <section class="panel resource-panel">
+        <div class="resource-row">
+          <div class="resource-big" id="shards_display">Shards: 0</div>
+          <div class="resource-sub" id="production_display">+0.00 / sec</div>
+        </div>
+
+        <div class="controls">
+          <button id="saveBtn" class="btn subtle">Save</button>
+          <button id="loadBtn" class="btn subtle">Load</button>
+          <button id="resetBtn" class="btn subtle danger">Reset</button>
+        </div>
+
+        <div class="notes muted">
+          <div>Keyboard shortcuts: <kbd>1</kbd> Echo — <kbd>2</kbd> Chronoscroll — <kbd>3</kbd> Sands — <kbd>4</kbd> Fragment — <kbd>P</kbd> Prestige — <kbd>Ctrl</kbd>+<kbd>S</kbd> Save</div>
+        </div>
+      </section>
+
+      <section class="panel upgrades-panel">
+        <h2>Buildings</h2>
+
+        <div class="upgrade" id="echo_row">
+          <div class="upgrade-left">
+            <div class="upgrade-title">Echoes</div>
+            <div class="upgrade-desc">+1 / sec each</div>
+            <div class="muted small" id="echo_info">Owned: 0</div>
+          </div>
+          <div class="upgrade-right">
+            <div class="cost" id="echo_cost">10</div>
+            <button id="buyEcho" class="btn primary">Buy (1)</button>
+          </div>
+        </div>
+
+        <div class="upgrade" id="chrono_row">
+          <div class="upgrade-left">
+            <div class="upgrade-title">Chronoscrolls</div>
+            <div class="upgrade-desc">+10 / sec each</div>
+            <div class="muted small" id="chrono_info">Owned: 0</div>
+          </div>
+          <div class="upgrade-right">
+            <div class="cost" id="chrono_cost">100</div>
+            <button id="buyChrono" class="btn primary">Buy (2)</button>
+          </div>
+        </div>
+
+        <div class="upgrade" id="sands_row">
+          <div class="upgrade-left">
+            <div class="upgrade-title">Sands of Time</div>
+            <div class="upgrade-desc">+100 / sec each</div>
+            <div class="muted small" id="sands_info">Owned: 0</div>
+          </div>
+          <div class="upgrade-right">
+            <div class="cost" id="sands_cost">1000</div>
+            <button id="buySands" class="btn primary">Buy (3)</button>
+          </div>
+        </div>
+
+        <div class="upgrade" id="fragment_row">
+          <div class="upgrade-left">
+            <div class="upgrade-title">Fragment of Hourglass</div>
+            <div class="upgrade-desc">+1000 / sec each</div>
+            <div class="muted small" id="fragment_info">Owned: 0</div>
+          </div>
+          <div class="upgrade-right">
+            <div class="cost" id="fragment_cost">10000</div>
+            <button id="buyFragment" class="btn primary">Buy (4)</button>
+          </div>
+        </div>
+
+      </section>
+
+      <section class="panel details-panel">
+        <h2>Details</h2>
+        <div class="detail-line">Base production: <strong id="base_ps">1.00</strong> / sec</div>
+        <div class="detail-line">Raw production (w/o prestige): <strong id="raw_ps">0.00</strong> / sec</div>
+        <div class="muted small">Scaling: Echo ×1.10 · Chrono ×1.15 · Sands ×1.20 · Fragment ×1.30</div>
+
+        <div class="panel shop" style="margin-top:14px;">
+          <h3>Ascension</h3>
+          <div class="muted small" id="ascension_info">Each Eternity gives +5% production. (Note: your Python used 10% earlier; web uses +5% by default.)</div>
+          <div style="margin-top:10px;">
+            <button id="prestigeBtn" class="btn accent">Ascend (P)</button>
+          </div>
+        </div>
+
+      </section>
+    </main>
+
+    <footer class="footer muted">
+      <div>Made for Thaladris — save stored to <code>localStorage</code>. Host as a static site (GitHub Pages).</div>
+    </footer>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
